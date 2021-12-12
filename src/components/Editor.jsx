@@ -20,20 +20,20 @@ const Editor = (props) => {
 
     return (
         <div className="editor-container">
-            <div className="relative editor-title bg-slate-900 text-gray-100 pl-2 py-1 rounded-t-md shadow-lg flow-root">
+            <div className="relative editor-title bg-slate-900 text-gray-100 px-2 py-2 rounded-t-md shadow-lg flow-root">
                 <div className=" inline-block float-left">{displayName}</div>
                 <button className=" bg-gray-50 text-slate-900 px-2 items-center rounded-md float-right">O/C</button>
             </div>
             <ControlledEditor 
                 onBeforeChange={handleChange}
                 value={value}
-                className="code-mirror-wrapper "
+                className="code-mirror-wrapper"
                 options={{
                     lineWrapping: true,
                     lint: true,
                     mode: language,
-                    lineNumbers:true,
-                    theme: 'material'
+                    theme: 'material',
+                    lineNumbers:true
                 }}
             />
         </div>

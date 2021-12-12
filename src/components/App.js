@@ -1,14 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Editor from "./Editor";
 
 function App() {
   const [html, setHtml] = useState('');
   const [css, setCss] = useState('');
   const [js, setJs] = useState('');
+  const [srcDoc, setSrcDoc] = useState('');
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setSrcDoc(`
+        <html>
+          <body>${html}</body>
+          <styles>${css}</styles>
+          <script>${js}</script>
+        </html>
+      `)
+    }, 250)
+
+    return () => clearTimeout(timeout);
+  }, [html, css, js]);
 
   return (
     <>
-      <div className="pane top-pane grid grid-cols-3 gap-2 px-2 bg-gray-800 pt-10 pb-6">
+      <div className="pane flex-col top-pane grid grid-cols-3 gap-2 px-2 bg-gray-800 pt-10 pb-6">
         <Editor 
           language= "xml"
           displayName= "HTML"
@@ -29,10 +44,12 @@ function App() {
         />
         
       </div>
-      <div className="bottom-pane">
+      <div className="bottom-pane border-separate border-zinc-900 flex h-screen">
         <iframe
+          srcDoc = {srcDoc}
           title="output"
           sandbox="allow-scripts"
+          frameBorder="0"
           width="100%"
           height="100%"
         />
