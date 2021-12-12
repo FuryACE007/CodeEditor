@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div className="pane top-pane grid grid-cols-3 gap-2 px-4 mt-6">
+      <div className="pane top-pane grid grid-cols-3 gap-2 px-2 bg-gray-800 pt-10 pb-6">
         <Editor 
           language= "xml"
           displayName= "HTML"
