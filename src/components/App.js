@@ -24,29 +24,29 @@ function App() {
   return (
     <>
       <div className="pane flex-col top-pane grid grid-cols-3 gap-2 px-2 bg-gray-800 pt-10 pb-6">
-        <Editor 
-          language= "xml"
-          displayName= "HTML"
+      <Editor
+          language="xml"
+          displayName="HTML"
           value={html}
           onChange={setHtml}
         />
-        <Editor 
-          language= "css"
-          displayName= "CSS"
+        <Editor
+          language="css"
+          displayName="CSS"
           value={css}
           onChange={setCss}
         />
-        <Editor 
-          language= "javascript"
-          displayName= "Javascript"
+        <Editor
+          language="javascript"
+          displayName="JS"
           value={js}
           onChange={setJs}
         />
         
       </div>
-      <div className="bottom-pane border-separate border-zinc-900 flex h-screen">
+      <div className="bottom-pane flex h-screen">
         <iframe
-          srcDoc = {srcDoc}
+          srcDoc={srcDoc}
           title="output"
           sandbox="allow-scripts"
           frameBorder="0"
